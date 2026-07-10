@@ -16,6 +16,9 @@ repository = { type = "github", user = "RisGar", repo = "nerdfont_cheatsheet" }
 
 [dependencies]
 gleam_stdlib = ">= 1.0.0 and < 2.0.0"
+gsv = ">= 5.1.0 and < 6.0.0"
+simplifile = ">= 2.5.0 and < 3.0.0"
+argv = ">= 1.1.0 and < 2.0.0"
 
 [dev_dependencies]
 gleeunit = ">= 1.0.0 and < 2.0.0"
