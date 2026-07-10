@@ -20,10 +20,11 @@ buildGleamApplication {
   erlangPackage = beamMinimal29Packages.erlang;
 
   preConfigure = ''
-    echo "  linking glyphs..."
+    echo " linking glyphs..."
 
     mkdir -p ./priv
     ln -sfn ${glyphs} ./priv/glyphs
 
+    ./priv/generate_csv.sh
   '';
 }
