@@ -19,5 +19,5 @@ debug
 target
 
 # Glyphs
-priv/glyphs
+glyphs
 priv/glyphs.csv
