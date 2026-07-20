@@ -22,9 +22,8 @@ buildGleamApplication {
   preConfigure = ''
     echo " linking glyphs..."
 
-    mkdir -p ./priv
-    ln -sfn ${glyphs} ./priv/glyphs
+    ln -sfn ${glyphs} ./glyphs
 
-    ./priv/generate_csv.sh
+    ./generate_csv.sh
   '';
 }

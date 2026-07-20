@@ -1,4 +1,5 @@
 import gleam/dict
+import gleam/erlang/application
 import gleam/list
 import gleam/option
 import gleam/result
@@ -44,11 +45,16 @@ pub type Glyph {
   Glyph(collection: Collection, symbol: String, name: String)
 }
 
-const filepath = "./priv/glyphs.csv"
-
 pub fn get_glyphs() -> Result(List(Glyph), String) {
+  use filepath <- result.try(
+    application.priv_directory("nerdfont_cheatsheet")
+    |> result.map_error(fn(err) {
+      "failed to get bundled files: " <> string.inspect(err)
+    }),
+  )
+
   use file <- result.try(
-    filepath
+    { filepath <> "/glyphs.csv" }
     |> simplifile.read()
     |> result.map_error(fn(err) {
       "failed to read file: " <> string.inspect(err)

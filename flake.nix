@@ -47,10 +47,11 @@
             packages = with pkgs; [ gleam ];
 
             shellHook = ''
-              echo "  linking glyphs..."
+              echo " linking glyphs..."
 
-              mkdir -p ./priv
-              ln -sfn ${glyphs} ./priv/glyphs
+              ln -sfn ${glyphs} ./glyphs
+
+              ./generate_csv.sh
             '';
           };
         }
